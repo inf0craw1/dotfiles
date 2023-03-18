@@ -2,7 +2,17 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export PATH=.:$PATH
 export ZSH="$HOME/.oh-my-zsh"
+export HOME_BREW="/opt/homebrew/bin"
+export PATH=$PATH:$HOME_BREW
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-toolsec
+export C_INCLUDE_PATH="$HOME/usr/local/include"
+export CPLUS_INCLUE_PATH="$HOME/usr/local/include"
 
 lg() {
 	lazygit
@@ -11,13 +21,28 @@ lg() {
 vi() {
 	nvim "$1"
 }
-rcpp() {
-	g++ -std=c++17 -O2 -Wall -Wno-sign-compare -DLOCAL "$1" -o ./a.out && ./a.out
-}
-ncpp() {
-	cp ~/.template.cpp ./"$1".cpp && vi ./"$1".cpp
+
+rc() {
+	gcc -Wall -o a "$1".c && ./a
 }
 
+rcpp() {
+	if [[ -f "$1" ]]; then
+		FILE="$1"
+	elif [[ -f "$1.cpp" ]]; then
+		FILE="$1.cpp"
+	fi
+
+	g++ -std=c++17 -O2 -Wall -Wno-sign-compare -DLOCAL "$FILE" -o ./a.out && ./a.out
+}
+
+ncpp() {
+	if [[ ! -f "$1" && ! -f "$1.cpp" ]]; then
+		cp ~/.template.cpp ./"$1".cpp && vi ./"$1".cpp
+	else
+		echo "$1.cpp already exists."
+	fi
+}
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
