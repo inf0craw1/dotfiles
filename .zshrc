@@ -44,6 +44,18 @@ ncpp() {
 	fi
 }
 
+rpy() {
+	if [[ -f "$1" ]]; then
+		FILE="$1"
+	elif [[ -f "$1.py" ]]; then
+		FILE="$1.py"
+	fi
+
+	echo "$FILE"
+
+	python3 "$FILE"
+}
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
