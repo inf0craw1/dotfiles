@@ -3,23 +3,9 @@
 
 # Path to your oh-my-zsh installation.
 export PATH=.:$PATH
-export ZSH="$HOME/.oh-my-zsh"
-export HOME_BREW="/opt/homebrew/bin"
-export PATH=$PATH:$HOME_BREW
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-toolsec
-export C_INCLUDE_PATH="$HOME/usr/local/include"
-export CPLUS_INCLUE_PATH="$HOME/usr/local/include"
 
 lg() {
 	lazygit
-}
-
-vi() {
-	nvim "$1"
 }
 
 rc() {
@@ -60,7 +46,6 @@ rpy() {
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -121,11 +106,6 @@ ZSH_THEME="agnoster"
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
