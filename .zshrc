@@ -9,7 +9,13 @@ lg() {
 }
 
 rc() {
-	gcc -Wall -o a "$1".c && ./a
+    if [[ -f "$1" ]]; then
+        FILE="$1"
+    elif [[ -f "$1.c" ]] then
+        FILE = "$1.c"
+    fi
+
+	gcc -Wall -o a "$FILE" && ./a
 }
 
 rcpp() {
