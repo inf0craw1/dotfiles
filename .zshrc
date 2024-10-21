@@ -25,7 +25,7 @@ vi() {
 rc() {
     if [[ -f "$1" ]]; then
         FILE="$1"
-    elif [[ -f "$1.c" ]] then
+    elif [[ -f "$1.c" ]]; then
         FILE = "$1.c"
     fi
 
