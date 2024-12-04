@@ -39,7 +39,7 @@ rcpp() {
 		FILE="$1.cpp"
 	fi
 
-	g++ -std=c++17 -O2 -Wall -Wno-sign-compare -DLOCAL "$FILE" -o ./a.out && ./a.out
+	g++ -std=c++11 -O2 -Wall -Wno-sign-compare -DLOCAL "$FILE" -o ./a.out && ./a.out
 }
 
 ncpp() {
